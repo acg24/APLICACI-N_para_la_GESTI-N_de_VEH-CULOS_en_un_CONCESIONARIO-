@@ -4,9 +4,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
 
-public class PruebaMC extends JFrame {
+public class MenuMostrar extends JFrame {
 
 	private JPanel contentPane;
 
@@ -17,7 +16,7 @@ public class PruebaMC extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PruebaMC frame = new PruebaMC();
+					MenuMostrar frame = new MenuMostrar();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -29,17 +28,13 @@ public class PruebaMC extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PruebaMC() {
+	public MenuMostrar() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 330, 538);
+		setBounds(100, 100, 362, 538);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("COMPRAS");
-		lblNewLabel.setBounds(371, 160, 133, 14);
-		contentPane.add(lblNewLabel);
 	}
 
 }

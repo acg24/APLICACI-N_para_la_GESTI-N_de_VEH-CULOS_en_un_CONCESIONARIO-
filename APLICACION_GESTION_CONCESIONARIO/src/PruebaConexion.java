@@ -13,9 +13,9 @@ public class PruebaConexion {
 	
 	public static void main(String[] args) {
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/concesionario?user=root&password=root"); 
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/concesionariovehiculos", "root", "root"); 
 			command = connection.createStatement();
-			command.execute("CREATE TABLE camion(matricula int, serie int);");
+			command.execute("Select");
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{	

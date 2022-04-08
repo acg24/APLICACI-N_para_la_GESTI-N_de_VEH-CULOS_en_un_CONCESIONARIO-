@@ -12,6 +12,7 @@ import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.JToolBar;
 import java.awt.SystemColor;
@@ -20,7 +21,7 @@ import java.awt.Font;
 import java.awt.Cursor;
 import java.awt.ComponentOrientation;
 
-public class PruebaM extends JFrame {
+public class MenuPrincipal extends JFrame {
 
 	private JPanel contentPane;
 	private JButton btnNewButton;
@@ -33,7 +34,7 @@ public class PruebaM extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PruebaM frame = new PruebaM();
+					MenuPrincipal frame = new MenuPrincipal();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,10 +46,10 @@ public class PruebaM extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PruebaM() {
+	public MenuPrincipal() {
 		setBackground(new Color(240, 230, 140));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 330, 538);
+		setBounds(100, 100, 362, 538);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -57,53 +58,55 @@ public class PruebaM extends JFrame {
 		btnNewButton = new JButton("COMPRAR");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PruebaMC frame = new PruebaMC();
+				MenuCompra frame = new MenuCompra();
 				frame.setVisible(true);
+				dispose();
 			}
 		});
-		btnNewButton.setBounds(22, 120, 132, 67);
+		btnNewButton.setBounds(38, 178, 132, 67);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("MOSTRAR");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				MenuMostrar frame = new MenuMostrar();
+				frame.setVisible(true);
+				dispose();
 			}
 		});
-		btnNewButton_1.setBounds(160, 120, 132, 118);
+		btnNewButton_1.setBounds(176, 178, 132, 118);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_3 = new JButton("VENDER");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				MenuVenta frame = null;
+				try {
+					frame = new MenuVenta();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				frame.setVisible(true);
+				dispose();
 			}
 		});
-		btnNewButton_3.setBounds(160, 249, 132, 116);
+		btnNewButton_3.setBounds(176, 307, 132, 116);
 		contentPane.add(btnNewButton_3);
 		
-		JLabel lblNewLabel = new JLabel("MODIFICAR");
-		lblNewLabel.setBounds(57, 271, 70, 14);
-		contentPane.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("VEH\u00CDCULO");
-		lblNewLabel_1.setBounds(57, 286, 70, 14);
-		contentPane.add(lblNewLabel_1);
-		
-		JButton btnNewButton_2 = new JButton("");
+		JButton btnNewButton_2 = new JButton("MODIFICAR");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				MenuModifica frame = new MenuModifica();
+				frame.setVisible(true);
+				dispose();
 			}
 		});
-		btnNewButton_2.setBounds(22, 198, 132, 167);
+		btnNewButton_2.setBounds(38, 256, 132, 167);
 		contentPane.add(btnNewButton_2);
 		toolBar.setFont(new Font("Segoe UI Semibold", Font.BOLD, 17));
 		toolBar.setBackground(SystemColor.activeCaption);
-		toolBar.setBounds(0, 0, 314, 31);
+		toolBar.setBounds(0, 0, 346, 31);
 		contentPane.add(toolBar);
-		
-		JComboBox comboBox = new JComboBox<String>();
-		comboBox.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		comboBox.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		toolBar.add(comboBox);
 		 
 		
 		JLabel lblNewLabel_2 = new JLabel("");
